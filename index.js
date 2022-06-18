@@ -1,24 +1,18 @@
 // Your code here
-function createEmployeeRecord(array){
+function createEmployeeRecord(info){
     return {
-        firstName: array[0],
-        familyName: array[1],
-        title: array[2],
-        payPerHour: array[3],
+        firstName: info[0],
+        familyName: info[1],
+        title: info[2],
+        payPerHour: info[3],
         timeInEvents:[],
         timeOutEvents:[],
 };
 };
 
-const createEmployeeRecords = (arrayOfArrays) => {
-    const arrayOfObjects = [];
-    for (let record of arrayOfArrays) {
-      let newRecord = createEmployeeRecord(record);
-      arrayOfObjects.push(newRecord);
-    };
-    return arrayOfObjects;
-  };
-
+function createEmployeeRecords(arrayOfArrays){
+    return arrayOfArrays.map(createEmployeeRecord)
+}
 
 const createTimeInEvent = (employeeRecord, dateStamp) => {
     const date = dateStamp.split(" ")[0];
